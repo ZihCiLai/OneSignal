@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         
-        // Replace '11111111-2222-3333-4444-0123456789ab' with your OneSignal App ID.
         OneSignal.initWithLaunchOptions(launchOptions,
                                         appId: appID,
                                         handleNotificationAction: nil,
