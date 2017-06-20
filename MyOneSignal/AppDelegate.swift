@@ -17,14 +17,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let appID = "d24c5012-f415-425f-935c-0a647108db48"
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         
-        OneSignal.initWithLaunchOptions(launchOptions,
-                                        appId: appID,
-                                        handleNotificationAction: nil,
-                                        settings: onesignalInitSettings)
+        let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
+            // This block gets called when the user reacts to a notification received
+            let payload: OSNotificationPayload? = result?.notification.payload
+            
+            print("Message: \(payload!.body)")
+            print("badge number:", payload?.badge ?? "nil")
+            print("notification sound:", payload?.sound ?? "nil")
+            
+            if let additionalData = result!.notification.payload!.additionalData {
+                print("additionalData = \(additionalData)")
+                
+                // DEEP LINK and open url in RedViewController
+                // Send notification with Additional Data > example key: "OpenURL" example value: "https://google.com"
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let instantiateRedViewController : WebView = mainStoryboard.instantiateViewController(withIdentifier: "WebViewID") as! WebView
+                instantiateRedViewController.receivedURL = additionalData["OpenURL"] as! String!
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                self.window?.rootViewController = instantiateRedViewController
+                self.window?.makeKeyAndVisible()
+                
+                
+                if let actionSelected = payload?.actionButtons {
+                    print("actionSelected = \(actionSelected)")
+                }
+                
+                // DEEP LINK from action buttons
+                if let actionID = result?.action.actionID {
+                    
+                    // For presenting a ViewController from push notification action button
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let actionWebView : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "WebViewID") as UIViewController
+                    let actionSecond: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "SecondID") as UIViewController
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    
+                    print("actionID = \(actionID)")
+                    
+                    if actionID == "id2" {
+                        print("id2")
+                        self.window?.rootViewController = actionWebView
+                        self.window?.makeKeyAndVisible()
+                        
+                        
+                    } else if actionID == "id1" {
+                        print("id1")
+                        self.window?.rootViewController = actionSecond
+                        self.window?.makeKeyAndVisible()
+                        
+                    }
+                }
+            }
+        }
         
-        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: true, ]
+        
+        OneSignal.initWithLaunchOptions(launchOptions, appId: appID, handleNotificationAction: notificationOpenedBlock, settings: onesignalInitSettings)
+        
+        
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
         
         // Recommend moving the below line to prompt for push after informing the user about
         //   how your app will use them.

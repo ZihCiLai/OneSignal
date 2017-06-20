@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -115,5 +116,88 @@
             </objects>
             <point key="canvasLocation" x="-124" y="591.45427286356824"/>
         </scene>
+        <!--Web View-->
+        <scene sceneID="HjA-3g-u7i">
+            <objects>
+                <viewController storyboardIdentifier="WebViewID" id="t4F-sR-5ho" customClass="WebView" customModule="MyOneSignal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GDz-lh-PK4"/>
+                        <viewControllerLayoutGuide type="bottom" id="f8R-ws-Dun"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2nz-nM-XMl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ym5-BQ-09F">
+                                <rect key="frame" x="16" y="58" width="343" height="609"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fet-wv-HFM">
+                                <rect key="frame" x="16" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fet-wv-HFM" secondAttribute="height" multiplier="23:15" id="9K1-lx-Ka8"/>
+                                </constraints>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Hdl-Gm-emZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f8R-ws-Dun" firstAttribute="top" secondItem="Ym5-BQ-09F" secondAttribute="bottom" id="6ue-x7-5BL"/>
+                            <constraint firstItem="fet-wv-HFM" firstAttribute="leading" secondItem="2nz-nM-XMl" secondAttribute="leadingMargin" id="Es2-e5-MHk"/>
+                            <constraint firstItem="Ym5-BQ-09F" firstAttribute="top" secondItem="fet-wv-HFM" secondAttribute="bottom" constant="8" id="IWS-yE-avJ"/>
+                            <constraint firstItem="fet-wv-HFM" firstAttribute="top" secondItem="GDz-lh-PK4" secondAttribute="bottom" id="Lx2-aa-yVX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ym5-BQ-09F" secondAttribute="trailing" id="RJW-AK-zBR"/>
+                            <constraint firstItem="Ym5-BQ-09F" firstAttribute="leading" secondItem="2nz-nM-XMl" secondAttribute="leadingMargin" id="vDj-Oa-m9t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Ym5-BQ-09F" id="q35-Oq-0MK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Wq-XL-KTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605.60000000000002" y="554.57271364317842"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ClS-xj-8X1">
+            <objects>
+                <viewController storyboardIdentifier="SecondID" id="jH1-70-RTe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LT4-Ad-bi1"/>
+                        <viewControllerLayoutGuide type="bottom" id="on6-ke-hcG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iJq-wp-dI6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDi-bC-ZAW">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YDi-bC-ZAW" secondAttribute="height" multiplier="23:15" id="yXP-MB-FkF"/>
+                                </constraints>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="57Z-01-aO1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YDi-bC-ZAW" firstAttribute="centerX" secondItem="iJq-wp-dI6" secondAttribute="centerX" id="A3A-zH-Wet"/>
+                            <constraint firstItem="YDi-bC-ZAW" firstAttribute="centerY" secondItem="iJq-wp-dI6" secondAttribute="centerY" id="bPg-4V-vqR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTM-KV-Mil" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="1308"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Hdl-Gm-emZ"/>
+    </inferredMetricsTieBreakers>
 </document>

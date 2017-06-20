@@ -15,6 +15,8 @@
 		921FF38C1EDC267E005A8ACC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921FF38B1EDC267E005A8ACC /* NotificationService.swift */; };
 		921FF3901EDC267E005A8ACC /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 921FF3891EDC267E005A8ACC /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		921FF39B1EE4DE9A005A8ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921FF39A1EE4DE9A005A8ACC /* Main.storyboard */; };
+		9299B7B11EF2E8F900804607 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299B7B01EF2E8F900804607 /* WebView.swift */; };
+		9299B7B31EF8FB3400804607 /* SentOneSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299B7B21EF8FB3400804607 /* SentOneSignal.swift */; };
 		A9C4AFE93A723921BA570C42 /* libPods-MyOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90DBE57D102229FB266FBEC9 /* libPods-MyOneSignal.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		921FF3971EDC2CC7005A8ACC /* OneSignal.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = OneSignal.entitlements; sourceTree = "<group>"; };
 		921FF3991EDE8DD3005A8ACC /* MyOneSignal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyOneSignal.entitlements; sourceTree = "<group>"; };
 		921FF39A1EE4DE9A005A8ACC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9299B7B01EF2E8F900804607 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		9299B7B21EF8FB3400804607 /* SentOneSignal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentOneSignal.swift; sourceTree = "<group>"; };
 		A10ED15B402C804E9E528FAD /* Pods-MyOneSignal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyOneSignal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyOneSignal/Pods-MyOneSignal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +133,9 @@
 				921FF3991EDE8DD3005A8ACC /* MyOneSignal.entitlements */,
 				921FF3971EDC2CC7005A8ACC /* OneSignal.entitlements */,
 				921FF3731EDC21E2005A8ACC /* AppDelegate.swift */,
+				9299B7B01EF2E8F900804607 /* WebView.swift */,
 				921FF3751EDC21E2005A8ACC /* ViewController.swift */,
+				9299B7B21EF8FB3400804607 /* SentOneSignal.swift */,
 				921FF39A1EE4DE9A005A8ACC /* Main.storyboard */,
 				921FF37A1EDC21E2005A8ACC /* Assets.xcassets */,
 				921FF37C1EDC21E2005A8ACC /* LaunchScreen.storyboard */,
@@ -343,7 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9299B7B11EF2E8F900804607 /* WebView.swift in Sources */,
 				921FF3761EDC21E2005A8ACC /* ViewController.swift in Sources */,
+				9299B7B31EF8FB3400804607 /* SentOneSignal.swift in Sources */,
 				921FF3741EDC21E2005A8ACC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
