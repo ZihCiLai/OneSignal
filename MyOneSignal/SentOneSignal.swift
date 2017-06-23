@@ -43,7 +43,7 @@ class SentOneSignal: NSObject {
         }
         request.httpMethod = "POST"
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.setValue("Basic YjZlNDU4MTItYWFjMy00MDNiLWI3NjAtZDM5ZTEzODlmZWM1", forHTTPHeaderField: "Authorization")
+        request.setValue("Basic ", forHTTPHeaderField: "Authorization")
         
         fetchedDataByDataTask(from: request, completion: completion)
     }
